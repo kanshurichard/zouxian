@@ -3,6 +3,11 @@
 MAX_WAIT_TIME=60
 CHECK_INTERVAL=1
 SECONDS_PASSED=0
+INITIAL_DELAY_SECONDS=5 # <-- 我测试延迟5秒即可，如果出现开启AI失败，可考虑增加延迟时间
+
+echo "Script started, waiting for initial delay..."
+sleep $INITIAL_DELAY_SECONDS #
+echo "Initial delay finished. Starting process check."
 
 while [ $SECONDS_PASSED -lt $MAX_WAIT_TIME ]; do
   PID=$(pgrep eligibilityd)
